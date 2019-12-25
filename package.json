@@ -1,0 +1,22 @@
+{
+  "name": "survey-form",
+  "version": "1.0.0",
+  "description": "Survey Form",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsschiramm/survey-form.git"
+  },
+  "author": "Daniel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dsschiramm/survey-form/issues"
+  },
+  "homepage": "https://github.com/dsschiramm/survey-form#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
+}
