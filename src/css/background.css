@@ -18,42 +18,42 @@ body {
 
 @media (max-width: 640px) and (orientation: landscape) {
 	body {
-		background-image: url('../images/background_landscape/w_778.jpg');
+		background-image: url('../images/bg_landscape_w_778.jpg');
 	}
 }
 
 @media (min-width: 641px) and (max-width: 1024px) and (orientation: landscape) {
 	body {
-		background-image: url('../images/background_landscape/w_1065.jpg');
+		background-image: url('../images/bg_landscape_w_1065.jpg');
 	}
 }
 
 @media (min-width: 1025px) and (max-width: 1200px) and (orientation: landscape) {
 	body {
-		background-image: url('../images/background_landscape/w_1296.jpg');
+		background-image: url('../images/bg_landscape_w_1296.jpg');
 	}
 }
 
 @media (min-width: 1201px) and (orientation: landscape) {
 	body {
-		background-image: url('../images/background_landscape/w_3840.jpg');
+		background-image: url('../images/bg_landscape_w_3840.jpg');
 	}
 }
 
 @media (max-width: 380px) and (orientation: portrait) {
 	body {
-		background-image: url('../images/background_portrait/w_380.jpg');
+		background-image: url('../images/bg_portrait_w_380.jpg');
 	}
 }
 
 @media (min-width: 381px) and (max-width: 672px) and (orientation: portrait) {
 	body {
-		background-image: url('../images/background_portrait/w_672.jpg');
+		background-image: url('../images/bg_portrait_w_672.jpg');
 	}
 }
 
 @media (min-width: 673px) and (orientation: portrait) {
 	body {
-		background-image: url('../images/background_portrait/w_800.jpg');
+		background-image: url('../images/bg_portrait_w_800.jpg');
 	}
 }
