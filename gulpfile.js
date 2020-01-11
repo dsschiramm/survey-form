@@ -8,12 +8,10 @@ const assets = require('postcss-assets');
 const sourcemaps = require('gulp-sourcemaps');
 const clean = require('gulp-clean');
 const imagemin = require('gulp-imagemin');
+const environments = require('gulp-environments');
 const CacheBuster = require('gulp-cachebust');
-const util = require('gulp-util');
-const gulpif = require('gulp-if');
 
 const cachebust = new CacheBuster({ random: true });
-const isProduction = util.env.mode === 'production';
 
 function cleanTask() {
 	return src('build', { read: false, allowEmpty: true }).pipe(clean());
@@ -30,10 +28,10 @@ function cssTask() {
 	var plugins = [assets({ loadPaths: ['./src/images/'] }), autoprefixer(), cssnano()];
 
 	return src('./src/css/*.css')
-		.pipe(gulpif(!isProduction, sourcemaps.init()))
+		.pipe(environments.development(sourcemaps.init()))
 		.pipe(postcss(plugins))
 		.pipe(concat('app.min.css'))
-		.pipe(gulpif(!isProduction, sourcemaps.write('.')))
+		.pipe(environments.development(sourcemaps.write('.')))
 		.pipe(cachebust.references())
 		.pipe(cachebust.resources())
 		.pipe(dest('build/css'));
@@ -46,12 +44,7 @@ function htmlTask() {
 		.pipe(dest('build'));
 }
 
-exports.cleanTask = cleanTask;
-exports.imageTask = imageTask;
-exports.cssTask = cssTask;
-exports.htmlTask = htmlTask;
-
-if (isProduction) {
+if (environments.production()) {
 	exports.default = series(cleanTask, imageTask, cssTask, htmlTask);
 } else {
 	const connect = require('gulp-connect');

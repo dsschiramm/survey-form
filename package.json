@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "gulp --mode development",
-		"build": "gulp --mode production"
+		"dev": "gulp --env development",
+		"build": "gulp --env production"
 	},
 	"repository": {
 		"type": "git",
@@ -27,12 +27,11 @@
 		"gulp-clean": "^0.4.0",
 		"gulp-concat": "^2.6.1",
 		"gulp-connect": "^5.7.0",
+		"gulp-environments": "^1.0.0",
 		"gulp-htmlmin": "^5.0.1",
-		"gulp-if": "^3.0.0",
 		"gulp-imagemin": "^6.2.0",
 		"gulp-postcss": "^8.0.0",
 		"gulp-sourcemaps": "^2.6.5",
-		"gulp-util": "^3.0.8",
 		"postcss-assets": "^5.0.0"
 	},
 	"browserslist": [
