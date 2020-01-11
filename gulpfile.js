@@ -43,7 +43,6 @@ function htmlTask() {
 	return src('./src/*.html')
 		.pipe(htmlmin({ collapseWhitespace: true }))
 		.pipe(cachebust.references())
-		.pipe(gulpif(isProduction, cachebust.resources()))
 		.pipe(dest('build'));
 }
 
