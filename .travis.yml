@@ -1,16 +1,21 @@
 language: node_js
 node_js:
-    - 'stable'
+    - stable
 cache:
     directories:
         - node_modules
+before_script:
+    - npm install -g gulp-cli
 script:
     - npm run build
 deploy:
     provider: pages
     skip_cleanup: true
-    github_token: $github_token
-	local_dir: build
-	keep_history: true
+    github_token: '$GITHUB_TOKEN'
+    local_dir: build
+    keep_history: true
     on:
-		branch: master
+        branch: master
+env:
+    global:
+        secure: AyH1xiD/jk0u4tUwPTU1/iC1P11DfCZpeQtI9KsvG1JIw6izfsWt6kU+EvRYhQhALCTpaWCq/rhi359oKJRkgaxh91e5emJgMMbxs6OkteTZ3LaLTD/xBTPwhGnxww8w0ovInWssWUCVMGYAwAQG9z/5Uh7MIoAac2EF7fEWG8sK5ExT4jtfeTXomVILkTtemftTOBPWf+NuBOums1g4i+4sVeJgIeis8MY75kfDjvL0pJrkpEh8qV8AVRWnJHLv/hE0qgyITPcWNcF1Eh9pkTOwxHomY+x2+pIT+T6F6uORJS6E00RLULUEhmVUm497XLBWU495aib5J9QDgEmWqzgSJkGGFg35G8Vprg4F0ewHqfhdwkjwqcRPZmXOO1EJtVCAP5P8J5c6oSSGNdwwlT8OG9KB5/5uPxVTkjHO32WXqvUTBTqmDO9Jbn26N6DMyAAJK1Ysd/0JE1uUkvLtqoDPze1r5cie3f9r7w6C+ky7UXmPdmbHJYdcic/VhfK2q+fcdGlIXC235nBthp1YsJcp1G9UGfmXihqRGe4sL7zkyqko+8E7BMCymzQDkN4dg4SGCJT3/ioAIz+/nYBR5XzdsbzHhf4C/FxHXcGRLnKL83FZPOFjDfIbYym6qrud7aUM5jDiwVGdIFWcgOzbHIRTuz/hivlX52S9OPnwuP0=
