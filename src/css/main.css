@@ -1,0 +1,23 @@
+.opacity-card {
+	opacity: 0.85;
+	-webkit-transition: opacity 0.5s ease-out;
+	-moz-transition: opacity 0.5s ease-out;
+	-ms-transition: opacity 0.5s ease-out;
+	-o-transition: opacity 0.5s ease-out;
+	transition: opacity 0.5s ease-out;
+}
+
+.opacity-card:hover,
+.opacity-card:focus,
+.opacity-card:focus-within {
+	opacity: 1;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+	#title,
+	#description {
+		display: inline-block;
+		-webkit-backdrop-filter: blur(2px);
+		backdrop-filter: blur(2px);
+	}
+}

@@ -18,7 +18,7 @@ function cleanTask() {
 }
 
 function imageTask() {
-	return src('src/images/**/*')
+	return src('./src/images/**/*')
 		.pipe(imagemin([imagemin.jpegtran({ progressive: true })]))
 		.pipe(cachebust.resources())
 		.pipe(dest('build/images'));
@@ -27,7 +27,13 @@ function imageTask() {
 function cssTask() {
 	var plugins = [assets({ loadPaths: ['./src/images/'] }), autoprefixer(), cssnano()];
 
-	return src('./src/css/*.css')
+	return src([
+		'node_modules/bootstrap/dist/css/bootstrap-reboot.css',
+		'node_modules/bootstrap/dist/css/bootstrap-grid.css',
+		'node_modules/bootstrap/dist/css/bootstrap.css',
+		'./src/css/background.css',
+		'./src/css/main.css',
+	])
 		.pipe(environments.development(sourcemaps.init()))
 		.pipe(postcss(plugins))
 		.pipe(concat('app.min.css'))
@@ -60,11 +66,5 @@ if (environments.production()) {
 		watch(['./src/css/*.css', './src/*.html'], series(cssTask, htmlTask));
 	}
 
-	exports.default = series(
-		cleanTask,
-		imageTask,
-		cssTask,
-		htmlTask,
-		parallel(serverTask, watchTask)
-	);
+	exports.default = series(cleanTask, imageTask, cssTask, htmlTask, parallel(serverTask, watchTask));
 }
